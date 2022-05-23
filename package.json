@@ -1,0 +1,31 @@
+{
+  "name": "nijobs-locations",
+  "version": "1.0.0",
+  "description": "API serving location data to NIJobs",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NIAEFEUP/nijobs-locations.git"
+  },
+  "keywords": [
+    "NIJobs",
+    "API",
+    "REST",
+    "Express"
+  ],
+  "author": "NIJobs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NIAEFEUP/nijobs-locations/issues"
+  },
+  "homepage": "https://github.com/NIAEFEUP/nijobs-locations#readme",
+  "dependencies": {
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
