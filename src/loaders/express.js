@@ -7,10 +7,10 @@ import HTTPStatus from "http-status-codes";
 
 import apiRoutes from "../api/index.js";
 import config from "../config.js";
-// import { defaultErrorHandler } from "../api/middleware/errorHandler.js";
+import { defaultErrorHandler } from "../api/middleware/errorHandler.js";
 
-const API_REQUEST_TIME_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const API_MAX_REQUESTS_PER_WINDOW = 100;
+// const API_REQUEST_TIME_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+// const API_MAX_REQUESTS_PER_WINDOW = 100;
 
 export default (app) => {
 
@@ -69,5 +69,5 @@ export default (app) => {
 
     // - Error handling
     // Adds default error catcher as last resort
-    // app.use(defaultErrorHandler);
+    app.use(defaultErrorHandler);
 };
