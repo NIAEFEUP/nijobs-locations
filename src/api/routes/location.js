@@ -22,4 +22,6 @@ export default (app) => {
                 return next(err);
             }
         });
+
+    router.post("/add", () => {});
 }

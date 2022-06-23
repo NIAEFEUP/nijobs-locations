@@ -8,7 +8,7 @@ import Location, { LocationConstants } from '../model/Location.js';
 
 const { minLength } = LocationConstants.searchTerm;
 
-const createSearchIndexTokens = str => {
+export const createSearchIndexTokens = str => {
 	if (str && str.length > minLength) {
 		const minGram = minLength;
 		const maxGram = str.length;
@@ -29,7 +29,7 @@ const createSearchIndexTokens = str => {
 			if (tokens.length == 0)
 				tokens = [`"${token}"`];
 			else {
-				tokens = [...tokens, `"${tokens[tokens.length - 1].replace(/\"/g, "")} ${token}"`]
+				tokens = [...tokens, `"${tokens[tokens.length - 1].replace(/\"/g, "")} ${token}"`];
 			}
 
 			return tokens;
@@ -60,12 +60,12 @@ const processData = async (csvFileName) => {
 			}))
 			.on('data', (data) => {
 
-				if (!data) return
+				if (!data) return;
 
 				data.citySearch = createSearchIndexTokens(data.city);
 				data.countrySearch = createSearchIndexTokens(data.country);
 
-				results.push(data)
+				results.push(data);
 			})
 			.on('error', (err) => resolve([null, err]))
 			.on('end', () => resolve([results, null]));
@@ -76,9 +76,9 @@ export const loadCSVDataToDB = async () => {
 
 	await Location.deleteMany({});
 
-	const filePath = '../assets/worldcities.csv'
+	const filePath = '../assets/worldcities.csv';
 	const __filename = fileURLToPath(import.meta.url);
-	const __dirname = path.dirname(__filename)
+	const __dirname = path.dirname(__filename);
 
 	const [results, error] = await processData(path.join(__dirname, filePath));
 
