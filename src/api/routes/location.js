@@ -1,13 +1,13 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import * as validators from '../middleware/location.js';
+import * as validators from "../middleware/location.js";
 
-import LocationService from '../../service/location.js';
+import LocationService from "../../service/location.js";
 
 const router = Router();
 
 export default (app) => {
-    app.use('/location', router);
+    app.use("/location", router);
 
     router.get("/search",
         validators.search,
@@ -24,4 +24,4 @@ export default (app) => {
         });
 
     router.post("/add", () => {});
-}
+};

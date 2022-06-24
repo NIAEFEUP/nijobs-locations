@@ -1,7 +1,7 @@
 import mongooseLoader from "./mongoose.js";
 import expressLoader from "./express.js";
 
-import { loadCSVDataToDB } from '../lib/CSVtoDBLoader.js';
+import { loadCSVDataToDB } from "../lib/CSVtoDBLoader.js";
 
 export default async ({ expressApp }) => {
     await mongooseLoader();
