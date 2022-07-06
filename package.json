@@ -24,7 +24,7 @@
     "Express"
   ],
   "author": "NIJobs",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/NIAEFEUP/nijobs-locations/issues"
   },
