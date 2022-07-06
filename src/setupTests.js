@@ -18,6 +18,17 @@ beforeAll(async () => {
     });
 });
 
+// delete 'loadCSVDataToDB' implementation so that each test controls the data it uses
+jest.mock("./lib/CSVtoDBLoader.js", () => {
+    const originalModule = jest.requireActual("./lib/CSVtoDBLoader.js");
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        loadCSVDataToDB: jest.fn(),
+    };
+});
+
 
 // Setting up the end-to-end request testing helper methods
 import supertest_request from "supertest";

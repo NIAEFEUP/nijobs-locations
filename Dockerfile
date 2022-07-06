@@ -18,9 +18,6 @@ RUN npm install
 # Copying app source
 COPY src/ src/
 
-# Copying jest mocks
-# COPY __mocks__/ __mocks__/
-
 # Copying test suite
 COPY test/ test/
 
