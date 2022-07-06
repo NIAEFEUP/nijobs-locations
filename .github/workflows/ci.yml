@@ -3,11 +3,11 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
       - develop
   pull_request:
     branches: 
-      - master
+      - main
       - develop
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
     - name: Checkout repository
