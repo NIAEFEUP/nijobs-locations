@@ -5,10 +5,12 @@
   "type": "module",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ${main}",
     "lint": "eslint src --max-warnings 0",
-    "lint-fix": "npm run lint -- --fix"
+    "lint-fix": "npm run lint -- --fix",
+    "audit": "npm audit --production --audit-level=high --json | npm-audit-helper --prod-only",
+    "test": "NODE_ENV=test jest --runInBand --coverage --verbose false",
+    "ci": "npm run lint && npm test"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "eslint": "^8.18.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "npm-audit-helper": "^4.0.0"
   }
 }

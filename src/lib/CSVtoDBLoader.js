@@ -85,10 +85,7 @@ export const loadCSVDataToDB = async () => {
 
     const [results, error] = await processData(path.join(__dirname, filePath));
 
-    if (error) {
-        console.err(error);
-        return;
-    }
+    if (error) return;
 
     for (const result of results)
         await Location.create(result); // do this to ensure every operation on the database happens after document insertion
