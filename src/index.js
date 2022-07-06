@@ -19,3 +19,8 @@ const startServer = async () => {
 };
 
 startServer();
+
+if (process.env.NODE_ENV === "test") {
+    // Necessary for test HTTP requests (End-to-End testing)
+    module.exports = app;
+}

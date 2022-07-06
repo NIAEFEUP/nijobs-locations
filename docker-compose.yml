@@ -30,7 +30,7 @@ services:
       - DB_HOST=mongo
     volumes:
       - ./src:/usr/src/nijobs-locations/src
-      # - ./test:/usr/src/nijobs-locations/test
+      - ./test:/usr/src/nijobs-locations/test
     depends_on:
       - mongo
   mongo:

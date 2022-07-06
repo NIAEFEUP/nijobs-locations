@@ -22,12 +22,12 @@ COPY src/ src/
 # COPY __mocks__/ __mocks__/
 
 # Copying test suite
-# COPY test/ test/
+COPY test/ test/
 
 # Copying .env files
 COPY .env* ./
 
 # Copying babel config
-# COPY babel.config.json ./
+COPY babel.config.json ./
 
 CMD ["npm", "start"]

@@ -16,14 +16,14 @@ COPY src/ src/
 # COPY __mocks__/ __mocks__/
 
 # Copying test suite
-# COPY test/ test/
+COPY test/ test/
 
 # Copying linting configuration (for running the linter)
 COPY .eslintrc .
 # Copying babel configuration
-# COPY babel.config.json .
+COPY babel.config.json .
 # Copying jest configs (for running the tests)
-# COPY jest.config.js .
+COPY jest.config.js .
 
 # Copying .env files
 COPY .env* ./

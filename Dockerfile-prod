@@ -16,6 +16,6 @@ COPY src/ src/
 COPY .env* ./
 
 # Copying babel config
-# COPY babel.config.json ./
+COPY babel.config.json ./
 
 CMD ["npm", "run", "prod"]
