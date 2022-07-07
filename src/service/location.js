@@ -8,10 +8,11 @@ class LocationService {
 
     static get LOCATION_FIELDS() {
         return [
-            "city",
-            "country",
-            "latitude",
-            "longitude"
+            "-_id",
+            "-score",
+            "-citySearch",
+            "-countrySearch",
+            "-__v"
         ];
     }
 
