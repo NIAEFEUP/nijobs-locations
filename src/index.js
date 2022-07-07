@@ -8,14 +8,19 @@ const app = express();
 const startServer = async () => {
     await loaders({ expressApp: app });
 
-    app.listen(config.port, (err) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
+    if (process.env.NODE_ENV !== "test") {
 
-        console.info(`Server listening on port ${config.port}`);
-    });
+        // TODO: possibly setup HTTPS
+
+        app.listen(config.port, (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+
+            console.info(`Server listening on port ${config.port}`);
+        });
+    }
 };
 
 startServer();

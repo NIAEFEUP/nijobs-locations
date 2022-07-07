@@ -18,7 +18,7 @@ beforeAll(async () => {
     });
 });
 
-// delete 'loadCSVDataToDB' implementation so that each test controls the data it uses
+// delete 'loadCSVDataToDB' implementation so that each test controls the data it uses, keep other functions for unit testing
 jest.mock("./lib/CSVtoDBLoader.js", () => {
     const originalModule = jest.requireActual("./lib/CSVtoDBLoader.js");
 
