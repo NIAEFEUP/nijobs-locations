@@ -20,11 +20,19 @@ describe("createSearchIndexTokens", () => {
         expect(createSearchIndexTokens(string)).toEqual(string);
     });
 
-    test("Should create ngrams of given string", () => {
+    test("Should create ngrams of given string without spaces", () => {
 
         const string = "a".repeat(minLength + 2);
         const expected =
-            `${"a".repeat(minLength)} ${"a".repeat(minLength + 1)} ${"a".repeat(minLength + 2)} "${"a".repeat(minLength + 2)}"`;
+            `${"a".repeat(minLength)} ${"a".repeat(minLength + 1)} ${string} "${string}"`;
+
+        expect(createSearchIndexTokens(string)).toEqual(expected);
+    });
+
+    test("Should create ngrams of given string with spaces", () => {
+
+        const string = "has spaces";
+        const expected = "has spa spac space spaces \"has\" \"has spaces\"";
 
         expect(createSearchIndexTokens(string)).toEqual(expected);
     });
