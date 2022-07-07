@@ -15,18 +15,18 @@ export const createSearchIndexTokens = (str) => {
 
         const ngrams = str.split(" ").reduce((ngrams, token) => {
 
-            let newNgrams;
+            let newNgrams = ngrams;
 
             if (token.length > minGram) {
                 for (let i = minGram; i <= maxGram && i <= token.length; ++i) {
-                    newNgrams = [...ngrams, token.substr(0, i)];
+                    newNgrams += ` ${token.slice(0, i)}`;
                 }
             } else {
-                newNgrams = [...ngrams, token];
+                newNgrams += ` ${token}`;
             }
 
             return newNgrams;
-        }, []).join(" ");
+        }, "");
 
         const tokens = str.split(" ").reduce((tokens, token) => {
 
@@ -41,7 +41,7 @@ export const createSearchIndexTokens = (str) => {
             return newTokens;
         }, []).join(" ");
 
-        return `${ngrams} ${tokens}`;
+        return `${ngrams.trim()} ${tokens.trim()}`;
     }
 
     return str;
