@@ -17,6 +17,7 @@ export const createSearchIndexTokens = (str) => {
 
             let newNgrams = ngrams;
 
+            // TODO: investigate how to make this faster: maybe keep the last ngram when building the current one ?
             if (token.length > minGram) {
                 for (let i = minGram; i <= maxGram && i <= token.length; ++i) {
                     newNgrams += ` ${token.slice(0, i)}`;

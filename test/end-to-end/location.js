@@ -7,7 +7,7 @@ import ValidationReasons from "../../src/api/middleware/validationReasons";
 import { createSearchIndexTokens } from "../../src/lib/CSVtoDBLoader";
 
 describe("Location endpoint tests", () => {
-    describe("GET /location/search", () => {
+    describe("GET /search", () => {
 
         let new_york, lisbon;
 
@@ -52,7 +52,7 @@ describe("Location endpoint tests", () => {
         test("Should fail if no search term provided", async () => {
 
             const res = await request()
-                .get("/location/search")
+                .get("/search")
                 .expect(HTTPStatus.UNPROCESSABLE_ENTITY);
 
             expect(res.body).toHaveProperty("errors");
@@ -67,7 +67,7 @@ describe("Location endpoint tests", () => {
         test("Should fail if search term provided too short", async () => {
 
             const res = await request()
-                .get("/location/search?searchTerm=")
+                .get("/search?searchTerm=")
                 .expect(HTTPStatus.UNPROCESSABLE_ENTITY);
 
             expect(res.body).toHaveProperty("errors");
@@ -83,7 +83,7 @@ describe("Location endpoint tests", () => {
         test("Should return at most 'LocationService.MAX_LOCATIONS' results", async () => {
 
             const res = await request()
-                .get("/location/search?searchTerm=\"Lisb\"")
+                .get("/search?searchTerm=\"Lisb\"")
                 .expect(HTTPStatus.OK);
 
             expect(res.body).toHaveProperty("length", LocationService.MAX_LOCATIONS);
@@ -92,7 +92,7 @@ describe("Location endpoint tests", () => {
         test("Should return city if exact match (city)", async () => {
 
             const res = await request()
-                .get(`/location/search?searchTerm="${lisbon.city}"`)
+                .get(`/search?searchTerm="${lisbon.city}"`)
                 .expect(HTTPStatus.OK);
 
             const expected = {
@@ -108,7 +108,7 @@ describe("Location endpoint tests", () => {
         test("Should return city if substring match (city)", async () => {
 
             const res = await request()
-                .get(`/location/search?searchTerm="${new_york.city.split(0, 6)}"`)
+                .get(`/search?searchTerm="${new_york.city.split(0, 6)}"`)
                 .expect(HTTPStatus.OK);
 
             const expected = {

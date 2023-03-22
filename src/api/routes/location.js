@@ -7,9 +7,9 @@ import LocationService from "../../service/location.js";
 const router = Router();
 
 export default (app) => {
-    app.use("/location", router);
+    app.use("/search", router);
 
-    router.get("/search",
+    router.get("/",
         validators.search,
         async (req, res, next) => {
 

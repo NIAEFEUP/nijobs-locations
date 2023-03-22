@@ -34,7 +34,6 @@ LocationSchema.index(
     { name: "Search index", weights: { citySearch: 10, countrySearch: 5 } }
 );
 
-// this works because mongoose caches commands until a valid connection can be established or a timeout error is raised
 const Location = mongoose.model("Location", LocationSchema);
 
 export default Location;
