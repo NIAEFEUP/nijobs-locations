@@ -6,7 +6,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "nodemon ${main}",
-    "prod": "NODE_ENV=production node ./src/index.js.",
+    "prod": "NODE_ENV=production node ./src/index.js",
     "lint": "eslint src --max-warnings 0",
     "lint-fix": "npm run lint -- --fix",
     "audit": "npm audit --production --audit-level=high --json | npm-audit-helper --prod-only",
